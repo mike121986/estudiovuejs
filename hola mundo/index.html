@@ -34,7 +34,7 @@
         <small>v--for "array"</small>
         <ul>
             <li v-for="(item,index) in servicios" :key="index">{{index + 1}}--{{item}}</li>
-        </ul>
+        </ul>1
         <hr>
         <small>v-on:click[eventos]</small><br><br>
         <!--  <button v-on:click="agregarSaldo">Agregar saldo</button> -->
@@ -44,9 +44,12 @@
         <hr>
         <small>instancias reutiliables "componentes"</small>
 
-       <footer-banco></footer-banco>
-       <footer-banco/>
-
+       <footer-banco  fecha="agosto 2021"></footer-banco>
+       <!-- <footer-banco cantidad="1050"/> -->
+       
+       <hr>
+       <small>componentes con props </small>
+       <footer-banco :valor="cantidad" fecha="agosto 2021"></footer-banco>
     </div>
 
     <script src="main.js"></script>

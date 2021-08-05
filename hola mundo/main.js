@@ -13,7 +13,8 @@ const app = Vue.createApp({
     // este es un objeto con diferente funcion
     methods: {
         agregarSaldo(){
-            this.cantidad = this.cantidad +100
+            this.desactivar = false;
+            this.cantidad = this.cantidad +100;
         },
         disminuirSaldo(valor){
             if(this.cantidad === 0 ){
