@@ -7,8 +7,8 @@
   </div>
 
   <!-- ESTE ES UN COMPONENTE HIJO, POR QUE EL PADRE ES CUENTA -->
-  <AccionSaldo texto="Aumentar Saldo"/>
-  <AccionSaldo texto="Disminuirdfsfs Saldo"/>
+  <AccionSaldo texto="Aumentar Saldo" @accion="aumentar"/>
+  <AccionSaldo texto="Disminuir Saldo" @accion="disminuir" :desactivar="desactivar"/>
 </template>
 
 <script>
@@ -20,17 +20,24 @@ export default {
   data() {
     return {
       cuenta: "Visa",
-      saldo: 1000,
+      saldo: 500,
       estado: false,
       servicios: ["giro", "abono", "transferencia"],
+      desactivar: false,
     };
   },
   methods: {
     aumentar() {
-      $this.saldo = $this.saldo + 100;
+      this.desactivar = false;
+      this.saldo = this.saldo + 100;
     },
     disminuir() {
-      $this.saldo = $this.saldo - 100;
+      if(this.saldo === 0){
+        this.desactivar = true;
+        alert("el saldo de de CERO")
+        return
+      }
+      this.saldo = this.saldo - 100;
     },
   },
 };
